@@ -1,0 +1,41 @@
+{
+    "name": "runearc/runearc",
+    "description": "Official Runearc SDK for PHP: send and schedule email, read agent inboxes, manage domains, verify webhooks.",
+    "type": "library",
+    "license": "MIT",
+    "homepage": "https://runearc.com/integrations/php",
+    "keywords": ["email", "email-api", "transactional-email", "smtp", "inbox", "webhooks", "ai-agents", "mcp", "resend-compatible"],
+    "support": {
+        "issues": "https://github.com/runearc-labs/runearc-php/issues",
+        "source": "https://github.com/runearc-labs/runearc-php",
+        "docs": "https://runearc.com/docs/sdk"
+    },
+    "require": {
+        "php": ">=8.2",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.64",
+        "phpstan/phpstan": "^2.0",
+        "phpunit/phpunit": "^10.5 || ^11.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Runearc\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Runearc\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "stan": "phpstan analyse",
+        "cs": "php-cs-fixer fix --dry-run --diff"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
