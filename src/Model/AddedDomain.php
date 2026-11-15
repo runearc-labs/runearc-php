@@ -14,7 +14,6 @@ final readonly class AddedDomain
     public function __construct(
         public string $id,
         public string $org_id,
-        public string $project_id,
         public string $name,
         public ?string $parent_domain_id,
         public string $status,
@@ -38,7 +37,6 @@ final readonly class AddedDomain
         return new self(
             Fields::string($data['id'] ?? null),
             Fields::string($data['org_id'] ?? null),
-            Fields::string($data['project_id'] ?? null),
             Fields::string($data['name'] ?? null),
             Fields::nullableString($data['parent_domain_id'] ?? null),
             Fields::string($data['status'] ?? null),

@@ -140,12 +140,12 @@ final class RetriesTest extends TestCase
     public function testSendsTheHeadersTheApiExpects(): void
     {
         $stub = $this->stub([['action' => 'respond', 'status' => 200, 'body' => '{"data":[]}']]);
-        $mb = new Runearc('mb_secret', baseUrl: $stub->url . '/v1/', headers: ['Runearc-Project' => 'prj_1']);
+        $mb = new Runearc('mb_secret', baseUrl: $stub->url . '/v1/', headers: ['X-Request-Source' => 'test']);
         $mb->senders->list();
         $request = $stub->requests()[0];
         self::assertSame('/v1/senders', $request['target']);
         self::assertSame('Bearer mb_secret', $request['headers']['authorization']);
-        self::assertSame('prj_1', $request['headers']['runearc-project']);
+        self::assertSame('test', $request['headers']['x-request-source']);
         self::assertSame('runearc-php/' . Runearc::VERSION, $request['headers']['user-agent']);
         self::assertSame('application/json', $request['headers']['accept']);
     }

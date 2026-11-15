@@ -10,7 +10,6 @@ final readonly class Conversation
 {
     public function __construct(
         public string $id,
-        public ConversationProject $project,
         public ConversationInbox $inbox,
         public string $subject,
         public string $snippet,
@@ -32,7 +31,6 @@ final readonly class Conversation
     {
         return new self(
             Fields::string($data['id'] ?? null),
-            ConversationProject::fromArray(Fields::map($data['project'] ?? null)),
             ConversationInbox::fromArray(Fields::map($data['inbox'] ?? null)),
             Fields::string($data['subject'] ?? null),
             Fields::string($data['snippet'] ?? null),

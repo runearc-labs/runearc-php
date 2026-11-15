@@ -14,7 +14,6 @@ final readonly class Event
     public function __construct(
         public string $id,
         public string $org_id,
-        public string $project_id,
         public string $type,
         public array $data,
         public string $created_at,
@@ -29,7 +28,6 @@ final readonly class Event
         return new self(
             Fields::string($data['id'] ?? null),
             Fields::string($data['org_id'] ?? null),
-            Fields::string($data['project_id'] ?? null),
             Fields::string($data['type'] ?? null),
             Fields::map($data['data'] ?? null),
             Fields::string($data['created_at'] ?? null),

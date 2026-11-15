@@ -14,7 +14,6 @@ final readonly class Webhook
     public function __construct(
         public string $id,
         public string $org_id,
-        public string $project_id,
         public string $url,
         public array $event_types,
         public ?string $inbox_id,
@@ -30,7 +29,6 @@ final readonly class Webhook
         return new self(
             Fields::string($data['id'] ?? null),
             Fields::string($data['org_id'] ?? null),
-            Fields::string($data['project_id'] ?? null),
             Fields::string($data['url'] ?? null),
             Fields::strings($data['event_types'] ?? null),
             Fields::nullableString($data['inbox_id'] ?? null),

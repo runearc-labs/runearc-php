@@ -20,7 +20,6 @@ final readonly class EmailDetail
      */
     public function __construct(
         public string $id,
-        public string $project_id,
         public ?string $domain_id,
         public string $from,
         public ?string $from_name,
@@ -51,7 +50,6 @@ final readonly class EmailDetail
     {
         return new self(
             Fields::string($data['id'] ?? null),
-            Fields::string($data['project_id'] ?? null),
             Fields::nullableString($data['domain_id'] ?? null),
             Fields::string($data['from'] ?? null),
             Fields::nullableString($data['from_name'] ?? null),

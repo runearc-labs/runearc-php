@@ -14,7 +14,7 @@ use Runearc\Support;
 final class Conversations extends Resource
 {
     /**
-     * @param array{status?: string, assignee?: string, project_id?: string, inbox_id?: string, q?: string, cursor?: string, limit?: int} $filter
+     * @param array{status?: string, assignee?: string, inbox_id?: string, q?: string, cursor?: string, limit?: int} $filter
      * @return Page<Conversation>
      */
     public function list(array $filter = [], ?RequestOptions $options = null): Page

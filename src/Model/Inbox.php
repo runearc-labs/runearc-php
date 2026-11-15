@@ -11,7 +11,6 @@ final readonly class Inbox
     public function __construct(
         public string $id,
         public string $org_id,
-        public string $project_id,
         public string $address,
         public string $local_part,
         public string $domain,
@@ -29,7 +28,6 @@ final readonly class Inbox
         return new self(
             Fields::string($data['id'] ?? null),
             Fields::string($data['org_id'] ?? null),
-            Fields::string($data['project_id'] ?? null),
             Fields::string($data['address'] ?? null),
             Fields::string($data['local_part'] ?? null),
             Fields::string($data['domain'] ?? null),

@@ -60,10 +60,9 @@ final class ModelTest extends TestCase
 
     public function testConversationAssigneeIsNullable(): void
     {
-        $base = ['id' => 'thr_1', 'project' => ['id' => 'prj_1', 'name' => 'P'], 'inbox' => ['id' => 'ibx_1', 'address' => 'a@example.com'], 'unread' => true];
+        $base = ['id' => 'thr_1', 'inbox' => ['id' => 'ibx_1', 'address' => 'a@example.com'], 'unread' => true];
         $open = Conversation::fromArray($base + ['assignee' => null]);
         self::assertNull($open->assignee);
-        self::assertSame('P', $open->project->name);
         self::assertTrue($open->unread);
 
         $assigned = Conversation::fromArray($base + ['assignee' => ['id' => 'usr_1', 'email' => 'me@example.com']]);

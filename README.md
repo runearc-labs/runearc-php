@@ -73,7 +73,7 @@ echo $sent->id; // eml_...
 | `baseUrl` | `RUNEARC_BASE_URL`, else `https://api.runearc.com` | A trailing `/v1` is fine. |
 | `maxRetries` | `2` | Retries after the first attempt (see [Retries](#retries-and-idempotency)). |
 | `timeoutMs` | `60000` | Per attempt. |
-| `headers` | none | Sent with every request, such as `['Runearc-Project' => 'prj_...']`. |
+| `headers` | none | Sent with every request, such as `['X-Request-Source' => 'billing-job']`. |
 
 Requests are plain PHP arrays. Responses are typed, read-only objects (`final readonly class`, in `Runearc\Model`) whose properties carry the API's JSON field names in snake case (`$email->reply_to`, `$email->scheduled_at`, `$page->next_cursor`), so the [API reference](https://runearc.com/docs) and this SDK read the same. Nullable fields are `?type`, lists are `list<Model>`, and keys the API adds later are ignored. Times in requests can be strings or any `DateTimeInterface`; times in responses are RFC 3339 strings. Every resource method takes a last optional `RequestOptions` argument: `new RequestOptions(idempotencyKey: '...', timeoutMs: 5000)`.
 

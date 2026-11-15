@@ -14,7 +14,6 @@ final readonly class ThreadWithMessages
     public function __construct(
         public string $id,
         public string $org_id,
-        public string $project_id,
         public string $inbox_id,
         public string $subject,
         public string $last_message_at,
@@ -36,7 +35,6 @@ final readonly class ThreadWithMessages
         return new self(
             Fields::string($data['id'] ?? null),
             Fields::string($data['org_id'] ?? null),
-            Fields::string($data['project_id'] ?? null),
             Fields::string($data['inbox_id'] ?? null),
             Fields::string($data['subject'] ?? null),
             Fields::string($data['last_message_at'] ?? null),

@@ -145,13 +145,11 @@ final class ResourcesTest extends TestCase
         // simulated test recipients are never suppressed), so one row is added with SQL,
         // the way core's add_suppression stores it.
         $mb = self::client();
-        $sent = $mb->emails->send(['from' => 'app@' . Environment::$domain, 'to' => self::testAddress(), 'subject' => self::unique('events'), 'text' => 'x']);
-        $projectId = $mb->emails->get($sent->id)->project_id;
+        $mb->emails->send(['from' => 'app@' . Environment::$domain, 'to' => self::testAddress(), 'subject' => self::unique('events'), 'text' => 'x']);
         $address = 'blocked-' . bin2hex(random_bytes(4)) . '@example.org';
         Environment::psql(sprintf(
-            "INSERT INTO suppressions (org_id, project_id, address, reason) VALUES ('%s', '%s', '%s', 'manual')",
+            "INSERT INTO suppressions (org_id, address, reason) VALUES ('%s', '%s', 'manual')",
             Environment::$orgId,
-            $projectId,
             $address,
         ));
         $found = array_values(array_filter($mb->suppressions->list()->data, static fn (Suppression $s): bool => $s->address === $address));

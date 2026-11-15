@@ -43,7 +43,7 @@ final class Runearc
      * @param string|null $baseUrl API origin. Default: RUNEARC_BASE_URL, else https://api.runearc.com. A trailing `/v1` is fine.
      * @param int $maxRetries Retries after the first attempt, on 429, 5xx and network errors. Default 2.
      * @param int $timeoutMs Per attempt timeout in milliseconds. Default 60000.
-     * @param array<string, string> $headers Extra headers sent with every request, such as `Runearc-Project`.
+     * @param array<string, string> $headers Extra headers sent with every request.
      * @throws ConfigurationException When there is no API key.
      */
     public function __construct(

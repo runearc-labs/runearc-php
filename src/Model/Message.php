@@ -18,7 +18,6 @@ final readonly class Message
     public function __construct(
         public string $id,
         public string $org_id,
-        public string $project_id,
         public string $inbox_id,
         public string $thread_id,
         public string $direction,
@@ -49,7 +48,6 @@ final readonly class Message
         return new self(
             Fields::string($data['id'] ?? null),
             Fields::string($data['org_id'] ?? null),
-            Fields::string($data['project_id'] ?? null),
             Fields::string($data['inbox_id'] ?? null),
             Fields::string($data['thread_id'] ?? null),
             Fields::string($data['direction'] ?? null),
